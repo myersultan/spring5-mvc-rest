@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
-    CategoryMapper categoryMapper;
-    CategoryRepository categoryRepository;
+    private final CategoryMapper categoryMapper;
+    private final CategoryRepository categoryRepository;
 
     public CategoryServiceImpl(CategoryMapper categoryMapper, CategoryRepository categoryRepository) {
         this.categoryMapper = categoryMapper;
