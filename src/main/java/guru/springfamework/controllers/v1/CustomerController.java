@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/v1/customers")
+@RequestMapping(CustomerController.BASE_URL)
 public class CustomerController {
+
+    public static final String BASE_URL = "/api/v1/customers";
 
     private final CustomerService customerService;
 
@@ -37,7 +39,7 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<CustomerDTO> createNewCustomer(@RequestBody CustomerDTO customerDTO) {
 
-        return new ResponseEntity<CustomerDTO>( customerService.createNewCustomer(customerDTO), HttpStatus.OK);
+        return new ResponseEntity<CustomerDTO>( customerService.createNewCustomer(customerDTO), HttpStatus.CREATED);
 
     }
 
